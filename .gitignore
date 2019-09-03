@@ -1,0 +1,13 @@
+*.class
+*.iml
+.idea/
+target/
+debug-interface/tiles/
+geocode-ws/logs
+
+# Package Files #
+*.jar
+*.war
+*.ear
+.Rhistory
+.Rproj.user
