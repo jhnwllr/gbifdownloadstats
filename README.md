@@ -44,15 +44,14 @@ filter(!is.na(country)) %>% # remove without country
 filter(!is.na(filter)) # remove those with no filter
 ```
 
-**monthly_totals_country.tsv** will end up looking like this:
-
 * **cumulative_downloads_by_year** number of downloads for that country that year up to that month and year. 
 * **cumulative_records_downloaded_by_year** number of occurrences downloaded for that country up to that month and year. 
 * **cumulative_unique_users_by_year** number of unique users for that country up to that month and year.
-
 * **Records** is the number of occurrences records downloaded for that country, month, and year
 * **Downloads** is the number of successful downloads  for that country, month, and year
 * **Users** is the number of unique users for that country, month, and year
+
+**monthly_totals_country.tsv** will end up looking like this:
 
 |month|year|country|Records   |Downloads|Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cumulative_unique_users_by_year|
 |-----|----|-------|----------|---------|-----|----------------------------|-------------------------------------|-------------------------------|
@@ -77,7 +76,7 @@ filter(!is.na(filter)) # remove those with no filter
 
 **monthly_totals.tsv** will end up looking like this:
 
-|month|year|Records|Downloads |Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cum_unique_users_by_year|
+|month|year|Records|Downloads |Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cumulative_unique_users_by_year|
 |-----|----|-------|----------|-----|----------------------------|-------------------------------------|------------------------|
 |9    |2019|8285028793|1041      |413  |93754                       |313306197135                         |14354                   |
 |8    |2019|33339285771|10240     |2358 |92713                       |305021168342                         |13207                   |

@@ -24,11 +24,11 @@ add_cum_unique_users_by_year = function(d) {
 
   indexes = data_list %>% map(~ .x %>% nrow())
 
-  cum_unique_users_by_year = map2(indexes,data_list,~get_cum_unique_users(.x,.y)) %>%
+  cumulative_unique_users_by_year = map2(indexes,data_list,~get_cum_unique_users(.x,.y)) %>%
     flatten_dbl() %>%
     rev()
 
-  d = d %>% mutate(cum_unique_users_by_year)
+  d = d %>% mutate(cumulative_unique_users_by_year)
   return(d)
 }
 
