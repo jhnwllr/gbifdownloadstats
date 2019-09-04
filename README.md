@@ -34,11 +34,25 @@ D %>% monthly_totals() %>% readr::write_tsv(Dir %+% "monthly_totals.tsv")
 
 ```
 
+These downloads are filtered out by default in `clean_table.R`
+
+```
+filter(!grepl("@gbif",notification_addresses)) # remove those with gbif emails
+filter(!user == "nagios") %>% # remove nagios whale user
+filter(status == "SUCCEEDED") %>% # only successful downloads
+filter(!is.na(country)) %>% # remove without country
+filter(!is.na(filter)) # remove those with no filter
+```
+
 **monthly_totals_country.tsv** will end up looking like this:
 
 * **cumulative_downloads_by_year** number of downloads for that country that year up to that month and year. 
 * **cumulative_records_downloaded_by_year** number of occurrences downloaded for that country up to that month and year. 
 * **cumulative_unique_users_by_year** number of unique users for that country up to that month and year.
+
+* **Records** is the number of occurrences records downloaded for that country, month, and year
+* **Downloads** is the number of successful downloads  for that country, month, and year
+* **Users** is the number of unique users for that country, month, and year
 
 |month|year|country|Records   |Downloads|Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cumulative_unique_users_by_year|
 |-----|----|-------|----------|---------|-----|----------------------------|-------------------------------------|-------------------------------|
@@ -60,6 +74,8 @@ D %>% monthly_totals() %>% readr::write_tsv(Dir %+% "monthly_totals.tsv")
 |9    |2019|DE     |103360    |11       |5    |1685                        |17653637583                          |308                            |
 |9    |2019|EC     |84        |1        |1    |1919                        |936720930                            |303                            |
 
+
+**monthly_totals.tsv** will end up looking like this:
 
 |month|year|Records|Downloads |Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cum_unique_users_by_year|
 |-----|----|-------|----------|-----|----------------------------|-------------------------------------|------------------------|
