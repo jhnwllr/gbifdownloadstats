@@ -10,8 +10,8 @@ monthly_totals = function(D) {
     mutate(cumulative_records_downloaded_by_year = cumsum(Records)) %>%
     ungroup() %>%
     arrange(desc(year),desc(month)) %>%
-    add_cum_unique_users_by_year() # complicated cumulative distinct user counts
-
+    add_cum_unique_users_by_year() %>% # complicated cumulative distinct user counts
+    select(-unique_users_list)
 
   return(monthly_totals)
 }

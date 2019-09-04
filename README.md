@@ -15,13 +15,12 @@ Generate stats **cumulative monthly stats** similar to what is produced:
 
 ```
 library(gbifdownloadstats) # my package
-library(RPostgres) # need for database connection 
-library(DBI)
+library(RPostgres) # needed for database connection 
+library(DBI) # needed for database connection 
 library(dplyr) 
-library(roperators)
+library(roperators) # for %+% string operator
 library(purrr)
 library(readr)
-library(magrittr)
 
 pw = {""} # you will need a password with admin access
 Dir = "C:/Users/ftw712/Desktop/"
@@ -36,6 +35,10 @@ D %>% monthly_totals() %>% readr::write_tsv(Dir %+% "monthly_totals.tsv")
 ```
 
 **monthly_totals_country.tsv** will end up looking like this:
+
+* **cumulative_downloads_by_year** number of downloads for that country that year up to that month and year. 
+* **cumulative_records_downloaded_by_year** number of occurrences downloaded for that country up to that month and year. 
+* **cumulative_unique_users_by_year** number of unique users for that country up to that month and year.
 
 |month|year|country|Records   |Downloads|Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cumulative_unique_users_by_year|
 |-----|----|-------|----------|---------|-----|----------------------------|-------------------------------------|-------------------------------|
@@ -58,6 +61,21 @@ D %>% monthly_totals() %>% readr::write_tsv(Dir %+% "monthly_totals.tsv")
 |9    |2019|EC     |84        |1        |1    |1919                        |936720930                            |303                            |
 
 
+|month|year|Records|Downloads |Users|cumulative_downloads_by_year|cumulative_records_downloaded_by_year|cum_unique_users_by_year|
+|-----|----|-------|----------|-----|----------------------------|-------------------------------------|------------------------|
+|9    |2019|8285028793|1041      |413  |93754                       |313306197135                         |14354                   |
+|8    |2019|33339285771|10240     |2358 |92713                       |305021168342                         |13207                   |
+|7    |2019|24984137297|12228     |2266 |82473                       |271681882571                         |11702                   |
+|6    |2019|48831591827|12081     |2308 |70245                       |246697745274                         |9828                    |
+|5    |2019|40999004794|11637     |2664 |58164                       |197866153447                         |8003                    |
+|4    |2019|46819232448|12413     |2767 |46527                       |156867148653                         |6147                    |
+|3    |2019|42671385689|13194     |2864 |34114                       |110047916205                         |4466                    |
+|2    |2019|33937946304|11391     |2618 |20920                       |67376530516                          |2659                    |
+|1    |2019|33438584212|9529      |2090 |9529                        |33438584212                          |413                     |
+|12   |2018|32511129326|7887      |1762 |150907                      |405733289179                         |16544                   |
+|11   |2018|30799402536|13131     |2511 |143020                      |373222159853                         |15644                   |
+|10   |2018|29013725646|14449     |2749 |129889                      |342422757317                         |14531                   |
+|9    |2018|23934550928|13434     |2160 |115440                      |313409031671                         |13218                   |
 
 
 
