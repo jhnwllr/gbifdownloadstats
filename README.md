@@ -44,12 +44,12 @@ filter(!is.na(country)) %>% # remove without country
 filter(!is.na(filter)) # remove those with no filter
 ```
 
-* **cumulative_downloads_by_year** number of downloads for that country that year up to that month and year. 
-* **cumulative_records_downloaded_by_year** number of occurrences downloaded for that country up to that month and year. 
-* **cumulative_unique_users_by_year** number of unique users for that country up to that month and year.
-* **Records** is the number of occurrences records downloaded for that country, month, and year
-* **Downloads** is the number of successful downloads  for that country, month, and year
-* **Users** is the number of unique users for that country, month, and year
+* **cumulative_downloads_by_year** (year to date) number of downloads for that country, month, and year (added cumulatively for each year).
+* **cumulative_records_downloaded_by_year** (year to date) number of occurrences downloaded for that country, month, and year (added cumulatively for each year).
+* **cumulative_unique_users_by_year** (year to date) number of unique users for that country, month, and year (added cumulatively for each year).
+* **Records** is the number of occurrences records downloaded for just that country, month, and year
+* **Downloads** is the number of successful downloads for just that country, month, and year
+* **Users** is the number of unique users for just that country, month, and year
 
 **monthly_totals_country.tsv** will end up looking like this:
 
